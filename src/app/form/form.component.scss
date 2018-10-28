@@ -13,11 +13,9 @@
   .form-back-arrow {
     position: absolute;
     right: 5px;
-    top: -110px;
 
     @media (min-width: 768px) {
       right: 20px;
-      top: 0;
     }
   }
 }
