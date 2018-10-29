@@ -9,14 +9,20 @@ import {User} from '../user';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  submitted = false;
+  user = new User('', '', '');
+  currentDate = new Date();
+
+  month: number = this.currentDate.getMonth() + 1;
+  day: number = this.currentDate.getDate();
+  year: number = this.currentDate.getFullYear();
+  futureDate: string = `${this.year}-${this.month}-${this.day}`;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
-  user = new User('', '', '');
-
-  submitted = false;
 
   onSubmit() { this.submitted = true; }
 }

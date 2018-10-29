@@ -23,10 +23,13 @@
 .ng-dirty {
 
   &.ng-invalid:not(form) {
-    border: 1px solid #ff2a2a;
+    border: 2px solid #ff2a2a;
   }
 }
 
-.validation-note {
+.validation-warning {
   color:#ff2a2a;
+  padding: 4px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
 }

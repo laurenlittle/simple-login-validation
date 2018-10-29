@@ -18,7 +18,7 @@
             <label for="firstName">First Name</label>
             <input type="text" class="form-control" [(ngModel)]="user.firstName" minlength="2" maxlength="56" id="firstName" name="firstName" required #firstName="ngModel">
 
-            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="validation-note">
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="validation-warning">
               <div *ngIf="firstName.errors.required">
                 First Name is required.
               </div>
@@ -35,7 +35,7 @@
             <label for="lastName">Last Name</label>
             <input type="text" class="form-control" [(ngModel)]="user.lastName" minlength="2" maxlength="56" id="lastName" name="lastName" required #lastName="ngModel">
 
-            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="validation-note">
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="validation-warning">
               <div *ngIf="lastName.errors.required">
                 Last Name is required.
               </div>
@@ -52,7 +52,17 @@
         <div class="col-sm">
           <div class="form-group">
             <label for="birthday">Birthday</label>
-            <input type="date" class="form-control" [(ngModel)]="user.birthday" id="birthday" name="birthday">
+            <input type="date" class="form-control" [(ngModel)]="user.birthday"  id="birthday" name="birthday" max="{{futureDate}}" required #birthday="ngModel">
+            <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched)" class="validation-warning">
+
+              <div *ngIf="birthday.errors.required">
+                Birthday is required.
+              </div>
+              <div *ngIf="birthday.errors.max" class="birthday-invalid">
+                Birthday cannot be before today.
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
