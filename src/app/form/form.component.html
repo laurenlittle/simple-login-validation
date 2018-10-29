@@ -11,19 +11,39 @@
       </div>
     </div>
 
-    <form>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
             <label for="firstName">First Name</label>
-            <input type="text" class="form-control" id="firstName" required>
+            <input type="text" class="form-control" [(ngModel)]="user.firstName" minlength="2" maxlength="56" id="firstName" name="firstName" required #firstName="ngModel">
+
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="validation-note">
+              <div *ngIf="firstName.errors.required">
+                First Name is required.
+              </div>
+              <div *ngIf="firstName.errors.minlength">
+                First Name must be at least 2 characters.
+              </div>
+            </div>
+
           </div>
         </div>
 
         <div class="col-sm-6">
           <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" id="lastName" required>
+            <input type="text" class="form-control" [(ngModel)]="user.lastName" minlength="2" maxlength="56" id="lastName" name="lastName" required #lastName="ngModel">
+
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="validation-note">
+              <div *ngIf="lastName.errors.required">
+                Last Name is required.
+              </div>
+              <div *ngIf="lastName.errors.minlength">
+                Last Name must be at least 2 characters.
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -32,12 +52,12 @@
         <div class="col-sm">
           <div class="form-group">
             <label for="birthday">Birthday</label>
-            <input type="date" class="form-control" id="birthday">
+            <input type="date" class="form-control" [(ngModel)]="user.birthday" id="birthday" name="birthday">
           </div>
         </div>
       </div>
 
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid" (click)="loginForm.reset()">Submit</button>
 
     </form>
   </div>

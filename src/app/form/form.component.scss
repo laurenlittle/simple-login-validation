@@ -19,3 +19,14 @@
     }
   }
 }
+
+.ng-dirty {
+
+  &.ng-invalid:not(form) {
+    border: 1px solid #ff2a2a;
+  }
+}
+
+.validation-note {
+  color:#ff2a2a;
+}

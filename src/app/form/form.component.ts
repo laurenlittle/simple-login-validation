@@ -14,13 +14,9 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 
-  model = new User(1, 'Ican', 'Uhaul', '09/16/1988');
+  user = new User('', '', '');
 
   submitted = false;
 
   onSubmit() { this.submitted = true; }
-
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
-
 }
