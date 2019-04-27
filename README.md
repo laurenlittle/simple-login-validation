@@ -1,6 +1,19 @@
 # LoginForm
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3. 
+The purpose was to create an example of an angular form with validation for the following fields:
+
+1. First Name
+    - Required
+    - Min Characters: 1
+    - Max Characters: 56
+2. Last Name
+    - Required
+    - Min Characters: 1
+    - Max Characters: 56
+3. DOB (Date of birth)
+    - Required
+    - Value can’t be greater than today’s date
 
 ## Development server
 
